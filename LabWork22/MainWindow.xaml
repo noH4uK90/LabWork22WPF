@@ -1,0 +1,41 @@
+﻿<Window x:Class="LabWork22.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:LabWork22"
+        mc:Ignorable="d"
+        Loaded="MainWindow_OnLoadedAsync"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <ListView Grid.Column="0" x:Name="DataListView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Сайт/приложение" DisplayMemberBinding="{Binding SiteApp}" />
+                    <GridViewColumn Header="Логин" DisplayMemberBinding="{Binding Login}" />
+                    <GridViewColumn Header="Пароль" DisplayMemberBinding="{Binding Password}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock Text="Сайт/приложение:" Margin="5 5 5 0" />
+            <TextBox x:Name="SiteAppTextBox" Margin="5" />
+            <TextBlock Text="Логин:" Margin="5 5 5 0" />
+            <TextBox x:Name="LoginTextBox" Margin="5" />
+            <TextBlock Text="Пароль:" Margin="5 5 5 0" />
+            <TextBox x:Name="PasswordTextBox" Margin="5" />
+            <TextBlock Text="Длина пароля:" Margin="5 5 5 0" />
+            <xctk:IntegerUpDown x:Name="PasswordLengthIntegerUpDown" Margin="5" />
+            
+            <Button Content="Добавить пароль" Margin="5" Click="AddButton_OnClick" />
+            <Button Content="Сгенерировать пароль" Margin="5" Click="GeneratePasswordButton_OnClick" />
+        </StackPanel>
+    </Grid>
+</Window>
